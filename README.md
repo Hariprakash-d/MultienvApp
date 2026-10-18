@@ -40,7 +40,6 @@ MONGO_URI=your_prod_mongodb_uri
 ```
 
 
-
 ### Requirements
 ```
 flask==2.0.1
@@ -51,11 +50,22 @@ requests==2.26.0
 ```
 
 
-
 ### Using Docker Compose
 ```bash
 docker-compose up
 ```
+---
+Screen shots
+
+![Docker Images Status](./screenshots/1.Docker%20images.PNG)
+
+![Frontend Home](./screenshots/2.frontend.PNG)
+
+![Development Backend](./screenshots/3.frontend_dev.PNG)
+
+![Production Backend](./screenshots/3.frontend_prod.PNG)
+
+---
 
 ## Accessing the Application
 
