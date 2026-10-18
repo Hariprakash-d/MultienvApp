@@ -63,6 +63,15 @@ docker-compose up
 - Development Environment: http://localhost:3001/dev
 - Production Environment: http://localhost:3002/prod
 
+## 📡 Endpoints and Target Ports Network Matrix
+
+| Deployment Profile View | Host Machine Port Access | Internal Container Mapping Target |
+| :--- | :--- | :--- |
+| **Frontend Portal Engine** | `http://localhost:5000` | Port 80 (Served via Nginx Stack) |
+| **Development Environment UI** | `http://localhost:5000/dev` | Routed internally to Backend Dev |
+| **Production Environment UI** | `http://localhost:5000/prod` | Routed internally to Backend Prod |
+
+*Engineering Infrastructure Note: The local workstation gateway mapping was successfully configured to host port 5000 to resolve an unexpected system-level WSL loopback allocation block on ports 3001 and 3002, successfully preserving internal microservice network communications.*
 
 
 ## Security Considerations
