@@ -1,0 +1,43 @@
+
+services:
+  backend-dev:
+    build:
+      context: ./backend/dev
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend/dev:/app
+    env_file:
+      - ./backend/dev/.env
+    networks:
+      - ticket-network
+
+  backend-prod:
+    build:
+      context: ./backend/prod
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    volumes:
+      - ./backend/prod:/app
+    env_file:
+      - ./backend/prod/.env
+    networks:
+      - ticket-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend-dev
+      - backend-prod
+    networks:
+      - ticket-network
+
+networks:
+  ticket-network:
+    driver: bridge
