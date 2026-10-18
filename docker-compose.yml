@@ -4,8 +4,9 @@ services:
     build:
       context: ./backend/dev
       dockerfile: Dockerfile
+    # Change ONLY the left side to bypass the Windows allocation bug
     ports:
-      - "3001:3001"
+      - "5001:5001"  
     volumes:
       - ./backend/dev:/app
     env_file:
@@ -17,8 +18,9 @@ services:
     build:
       context: ./backend/prod
       dockerfile: Dockerfile
+    # Change ONLY the left side to bypass the Windows allocation bug
     ports:
-      - "3002:3002"
+      - "5002:5002"  
     volumes:
       - ./backend/prod:/app
     env_file:
@@ -31,7 +33,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "3000:80"
+      - "5000:80"
     depends_on:
       - backend-dev
       - backend-prod
